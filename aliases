@@ -1,0 +1,7 @@
+alias h='history'
+alias ls='ls -F'
+alias pinger='ping google.com'
+alias sort_size='du -sch .[!.]* * | sort -k1h'
+alias sourcer='source ~/.bash_profile'
+alias vimf='vim $(fzf)'
+alias vimmer='cd ~/.vim'
