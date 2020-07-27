@@ -24,19 +24,31 @@ export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
 # Add my executables to the path
 export PATH=$PATH:~/my_executables/
 
+# Make it so that we see the directory contents when cd-ing in
 cd() {
     builtin cd "$@" && ls -F
 }
 
 # source fzf
 fzf_script=~/.fzf.bash
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash || echo "Couldn't find $fzf_script"
+if [ -f ~/.fzf.bash ]; then 
+    source ~/.fzf.bash
+else
+    echo "Couldn't find $fzf_script"
+fi
 
 # Set fzf to ripgrep and ignore
 if type rg &> /dev/null; then
-    export FZF_DEFAULT_COMMAND='rg --files --hidden --ignore-file=\*.pyc'
+    export FZF_DEFAULT_COMMAND='rg --files --hidden --ignore-file=\*.pyc';
+else
+    echo "Couldn't find ripgrep"
 fi
 
 # bashcompletion
 # https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion#homebrew
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+# [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh" || echo "Couldn't find bash_completion"
+if [ -r "/usr/local/etc/profile.d/bash_completion.sh" ]; then  
+    . "/usr/local/etc/profile.d/bash_completion.sh"
+else
+    echo "Couldn't find bash_completion"
+fi
