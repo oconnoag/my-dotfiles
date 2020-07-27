@@ -33,6 +33,8 @@ cd() {
 fzf_script=~/.fzf.bash
 if [ -f ~/.fzf.bash ]; then 
     source ~/.fzf.bash
+elif type fzf &> /dev/null; then
+    :  # Do nothing
 else
     echo "Couldn't find $fzf_script"
 fi
