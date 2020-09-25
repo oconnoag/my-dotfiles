@@ -10,3 +10,13 @@ alias gs='git status'
 alias ga='git add'
 alias gc='git commit'
 alias gb='git branch'
+
+# Git checkout
+gco() {
+    branch=$1
+    if [ -z $branch ]; then
+        echo "[ERROR]: Must provide branch to checkout -- no action performed"
+    else
+        git checkout $branch
+    fi
+}
