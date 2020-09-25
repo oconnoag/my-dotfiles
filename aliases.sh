@@ -12,6 +12,7 @@ alias gc='git commit'
 alias gb='git branch'
 
 # Git checkout -- must provide branch
+# :param $1: Branch name
 gco() {
     branch=$1
     if [ -z $branch ]; then
@@ -22,6 +23,7 @@ gco() {
 }
 
 # Enter into an docker container 
+# :param $1: container id (Get from docker container ls)
 enter_container() {
     docker exec -it $1 /bin/bash
 }
