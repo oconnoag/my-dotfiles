@@ -11,7 +11,7 @@ alias ga='git add'
 alias gc='git commit'
 alias gb='git branch'
 
-# Git checkout
+# Git checkout -- must provide branch
 gco() {
     branch=$1
     if [ -z $branch ]; then
@@ -19,4 +19,9 @@ gco() {
     else
         git checkout $branch
     fi
+}
+
+# Enter into an docker container 
+enter_container() {
+    docker exec -it $1 /bin/bash
 }

@@ -24,8 +24,7 @@ main() {
     install_via_brew_or_yum fzf
     install_via_brew_or_yum ripgrep
 
-    echo -e "\nsource ~/.dotfiles/aliases" >> ~/.bash_profile
-    echo -e "\nsource ~/.dotfiles/commands.sh\n" >> ~/.bash_profile
+    echo -e "\nsource ~/.dotfiles/aliases.sh" >> ~/.bash_profile
     echo -e "source ~/.dotfiles/bash_profile\n" >> ~/.bash_profile
 
     source ~/.bash_profile
