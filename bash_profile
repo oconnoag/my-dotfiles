@@ -14,9 +14,14 @@ parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
+# Print out a dynamic PWD with the first couple of dir names removed 
+# See https://stackoverflow.com/questions/5687446/how-can-i-shortern-my-command-line-prompts-current-directory 
+# for more info
+export shorter_pwd='$(echo -n "${PWD}" | sed "s/\/Users\/aoconnor\/Documents\/AlijahProjects/.../g")'
+
 # Set Bash Prompt String
-# PS1='\e[37;1m\u$(parse_git_branch):\e[35m\W\e[0m\$ ' # this will change your prompt format
-export PS1="\[\033[1;37m\]\u@\h\[\033[00m\] \[\033[0;36m\]\W\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
+# export PS1="\n\[\033[1;37m\]\u@\h\[\033[00m\] \[\033[0;36m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\]\n$ "  # This one uses the \w to print the whole pwd path in the prompt
+export PS1='\n\[\033[1;37m\]\u@\h\[\033[00m\] \[\033[0;36m\]$(eval "echo ${shorter_pwd}") \[\033[33m\]\$(parse_git_branch)\[\033[00m\]\n$ '
 
 # print title to tab
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
