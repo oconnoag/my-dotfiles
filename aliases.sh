@@ -28,3 +28,15 @@ gco() {
 enter_container() {
     docker exec -it $1 /bin/bash
 }
+
+# Create unit testing module
+# :param $1: Module name (Name of the module to create the unit testing)
+unit_test() {
+    mod_name=$1
+
+    if [ -z ${mod_name} ]; then
+        echo "[ERROR]: Must provide module name to create unit testing module -- no action performed"
+    else
+        cp ./templates/unit_test.py $1 && vim $1
+    fi
+}

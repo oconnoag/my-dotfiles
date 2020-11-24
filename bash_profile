@@ -21,7 +21,7 @@ export shorter_pwd='$(echo -n "${PWD}" | sed "s/\/Users\/aoconnor\/Documents\/Al
 
 # Set Bash Prompt String
 # export PS1="\n\[\033[1;37m\]\u@\h\[\033[00m\] \[\033[0;36m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\]\n$ "  # This one uses the \w to print the whole pwd path in the prompt
-export PS1='\n\[\033[1;37m\]\u@\h\[\033[00m\] \[\033[0;36m\]$(eval "echo ${shorter_pwd}") \[\033[33m\]\$(parse_git_branch)\[\033[00m\]\n$ '
+export PS1='\n\[\033[1;37m\]\u@\h\[\033[00m\] \[\033[0;36m\]$(eval "echo ${shorter_pwd}")\[\033[33m\]$(parse_git_branch)\[\033[00m\]\n$ '
 
 # print title to tab
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
