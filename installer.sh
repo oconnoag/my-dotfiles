@@ -23,6 +23,7 @@ main() {
     install_via_brew_or_yum bash-completion
     install_via_brew_or_yum fzf
     install_via_brew_or_yum ripgrep
+    install_via_brew_or_yum figlet
 
     echo -e "\nsource ~/.dotfiles/aliases.sh" >> ~/.bash_profile
     echo -e "source ~/.dotfiles/bash_profile\n" >> ~/.bash_profile

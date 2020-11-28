@@ -53,9 +53,10 @@ fi
 
 # bashcompletion
 # https://github.com/bobthecow/git-flow-completion/wiki/Install-Bash-git-completion#homebrew
-# [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh" || echo "Couldn't find bash_completion"
 if [ -r "/usr/local/etc/profile.d/bash_completion.sh" ]; then  
     . "/usr/local/etc/profile.d/bash_completion.sh"
 else
     echo "Couldn't find bash_completion"
 fi
+
+figlet "Sourcing complete!"
