@@ -25,9 +25,9 @@ gco() {
     fi
 }
 
-# Enter into an docker container 
+# Enter into an docker container (EnterContainer)
 # :param $1: container id (Get from docker container ls)
-enter_container() {
+ec() {
     docker exec -it $1 /bin/bash
 }
 
@@ -39,7 +39,7 @@ unit_test() {
     if [ -z ${mod_name} ]; then
         echo "[ERROR]: Must provide module name to create unit testing module -- no action performed"
     else
-        cp ./templates/unit_test.py $1 && vim $1
+        cp ~/.dotfiles/templates/unit_test.py $1 && vim $1
     fi
 }
 
@@ -50,4 +50,11 @@ pydir() {
 
     mkdir $1 && cd $1 && touch __init__.py
     echo "'$1' created with __init__.py"
+}
+
+# History grep
+# :param $1: Grep pattern 
+hg() {
+    grep_pattern=$1
+    history | grep -e $1
 }
