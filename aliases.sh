@@ -11,8 +11,9 @@ alias ga='git add'
 alias gc='git commit'
 alias gb='git branch'
 alias c='clear'
-alias grep='grep -r --color=auto'  # Always color match and search recursively
+alias grep='egrep --color=auto'  # Always color match
 alias v='vim'
+alias py='python'
 
 # Git checkout -- must provide branch
 # :param $1: Branch name
@@ -56,5 +57,5 @@ pydir() {
 # :param $1: Grep pattern 
 hg() {
     grep_pattern=$1
-    history | grep -e $1
+    history | egrep $1
 }
