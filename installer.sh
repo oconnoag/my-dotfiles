@@ -20,10 +20,17 @@ main() {
         exit 1
     fi
 
+    # Download packages with a package manager
     for package in $(cat brew_packages.txt); do
-        install_via_brew_or_yum $package
+        install_via_brew_or_yum $package;
     done
 
+    # ctags requires an alternative brew install 
+    if type brew &> /dev/null; then
+        brew install --HEAD universal-ctags/universal-ctags/universal-ctags
+    fi
+
+    # Set up the source commands in the system bash_profile
     echo -e "\nsource ~/.dotfiles/aliases.sh" >> ~/.bash_profile
     echo -e "source ~/.dotfiles/bash_profile\n" >> ~/.bash_profile
 
