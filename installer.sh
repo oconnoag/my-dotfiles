@@ -20,10 +20,9 @@ main() {
         exit 1
     fi
 
-    install_via_brew_or_yum bash-completion
-    install_via_brew_or_yum fzf
-    install_via_brew_or_yum ripgrep
-    install_via_brew_or_yum figlet
+    for package in $(cat brew_packages.txt); do
+        install_via_brew_or_yum $package
+    done
 
     echo -e "\nsource ~/.dotfiles/aliases.sh" >> ~/.bash_profile
     echo -e "source ~/.dotfiles/bash_profile\n" >> ~/.bash_profile
