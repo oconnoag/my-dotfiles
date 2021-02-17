@@ -8,10 +8,10 @@ alias vimf='vim $(fzf)'
 alias vimmer='cd ~/.vim'
 alias gs='git status'
 alias ga='git add'
+alias gaa='git add --all'
 alias gc='git commit'
 alias gb='git branch'
 alias c='clear'
-alias grep='egrep --color=auto'  # Always color match
 alias v='vim'
 alias py='python'
 
