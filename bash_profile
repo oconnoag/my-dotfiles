@@ -19,9 +19,13 @@ parse_git_branch() {
 # for more info
 export shorter_pwd='$(echo -n "${PWD}" | sed "s/\/Users\/aoconnor\/Documents\/AlijahProjects/.../g")'
 
+# If there is an apostrophe in the hostname (like when my last name is included), remove it
+# https://stackoverflow.com/a/24509305/9829163
+export better_hostname='$(hostname) | sed "s/'\''//g"'
+
 # Set Bash Prompt String
 # export PS1="\n\[\033[1;37m\]\u@\h\[\033[00m\] \[\033[0;36m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\]\n$ "  # This one uses the \w to print the whole pwd path in the prompt
-export PS1='\n\[\033[1;37m\]\u@\h\[\033[00m\] \[\033[0;36m\]$(eval "echo ${shorter_pwd}")\[\033[33m\]$(parse_git_branch)\[\033[00m\]\n$ '
+export PS1='\n\[\033[1;37m\]\u@$(eval "echo ${better_hostname}")\[\033[00m\] \[\033[0;36m\]$(eval "echo ${shorter_pwd}")\[\033[33m\]$(parse_git_branch)\[\033[00m\]\n$ '
 
 # print title to tab
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'

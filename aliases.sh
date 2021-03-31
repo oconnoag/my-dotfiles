@@ -59,3 +59,17 @@ hg() {
     grep_pattern=$1
     history | egrep $1
 }
+
+# Sequence grabber
+seqer() {
+    chrom=$1
+    start=$2
+    end=$3
+
+    if [ -z ${chrom} ] || [ -z ${start} ] || [ -z ${end} ]; then
+        echo "[ERROR]: 'seqer <chrom> <start> <end>'";
+    else
+        curl -s http://genome.ucsc.edu/cgi-bin/das/hg19/dna?segment=$chrom:$start,$end | grep -v "<"
+    fi
+
+}
