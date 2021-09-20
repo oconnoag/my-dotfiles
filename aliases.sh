@@ -11,6 +11,7 @@ alias ga='git add'
 alias gaa='git add --all'
 alias gc='git commit'
 alias gb='git branch'
+alias gsub='git submodule update --recursive --init'
 alias c='clear'
 alias v='vim'
 alias py='python'
@@ -54,7 +55,7 @@ pydir() {
 }
 
 # History grep
-# :param $1: Grep pattern 
+# :param $1: Grep pattern
 hg() {
     grep_pattern=$1
     history | egrep $1
@@ -72,4 +73,16 @@ seqer() {
         curl -s http://genome.ucsc.edu/cgi-bin/das/hg19/dna?segment=$chrom:$start,$end | grep -v "<"
     fi
 
+}
+
+# Git push origin branch
+gbop() {
+    branch_name=`git branch --show-current`
+    git push origin $branch_name
+}
+
+# Reverse complete a sequence
+rev_comp() {
+    seq=$1
+    echo $seq | tr ACGTacgt TGCAtgca | rev
 }
