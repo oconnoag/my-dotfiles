@@ -86,3 +86,13 @@ rev_comp() {
     seq=$1
     echo $seq | tr ACGTacgt TGCAtgca | rev
 }
+
+# Reverse complete a sequence using a specified range
+rev_seqer() {
+    chrom=$1
+    start=$2
+    end=$3
+
+    rev_comp $( seqer $chrom $start $end | tr -d "\n" )
+}
+
