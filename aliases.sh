@@ -81,6 +81,12 @@ gbop() {
     git push origin $branch_name
 }
 
+# Git push upstream branch
+gbup() {
+    branch_name=`git branch --show-current`
+    git push upstream $branch_name
+}
+
 # Reverse complete a sequence
 rev_comp() {
     seq=$1
