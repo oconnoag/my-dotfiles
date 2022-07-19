@@ -15,6 +15,9 @@ alias gsub='git submodule update --recursive --init'
 alias c='clear'
 alias v='vim'
 alias py='python'
+alias cdd='cd ..'
+alias cddd='cd ../..'
+alias dl="cd ~/Downloads"
 
 # Git checkout -- must provide branch
 # :param $1: Branch name
@@ -94,7 +97,7 @@ rev_comp() {
 }
 
 # Reverse complete a sequence using a specified range
-rev_seqer() {
+rseqer() {
     chrom=$1
     start=$2
     end=$3
