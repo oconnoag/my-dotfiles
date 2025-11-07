@@ -11,12 +11,13 @@ alias ga='git add'
 alias gaa='git add --all'
 alias gc='git commit'
 alias gb='git branch'
-alias gsub='git submodule update --recursive --init'
+alias gsur='git submodule update --recursive --init'
+alias merge_master='git checkout master && git pull origin master && git checkout - && git merge master'
 alias c='clear'
 alias v='vim'
 alias py='python'
-alias cdd='cd ..'
-alias cddd='cd ../..'
+alias ..='cd ..'
+alias ...='cd ../..'
 alias dl="cd ~/Downloads"
 
 # Git checkout -- must provide branch
