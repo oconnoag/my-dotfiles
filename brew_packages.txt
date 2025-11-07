@@ -1,9 +1,6 @@
 autoconf
 automake
 bash-completion
-bcftools
-bedtools
-bwa
 cowsay
 ctags
 docutils
@@ -41,11 +38,9 @@ pcre2
 perl
 pkg-config
 pylint
-python@3.8
 readline
 ripgrep
 ruby
-samtools
 sqlite
 sshuttle
 toilet
